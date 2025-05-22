@@ -1,0 +1,13 @@
+a {
+  @apply font-medium text-sm;
+}
+
+.link {
+  &__primary {
+    @apply text-blue-600 hover:text-blue-500;
+  }
+}
+
+.text-md {
+  font-size: 0.92rem;
+}
