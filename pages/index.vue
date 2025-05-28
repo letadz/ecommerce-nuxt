@@ -7,7 +7,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <template>
-    <PagesHome />
-  </template>
+  <PagesHome />
 </template>

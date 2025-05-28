@@ -10,7 +10,6 @@ export const useProductsStore = defineStore("products", {
     getProducts: (state) => {
       if (state.products.length > 0) {
         return state.products.map((product) => {
-          console.log("Product:", product);
           return { ...product };
         });
       }

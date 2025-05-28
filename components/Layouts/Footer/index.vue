@@ -1,9 +1,12 @@
 <script setup>
 import EmailInput from "~/components/ui/Inputs/EmailInput";
+
+// const date = new Date();
+// const year = date.getFullYear();
 </script>
 
 <template>
-  <div class="flex justify-center items-center bg-black p-2 md:p-4">
+  <div class="flex flex-col justify-center items-center bg-black p-2 md:p-4">
     <footer
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mx-4 md:mx-10 my-14 text-white justify-center"
     >
@@ -98,7 +101,7 @@ import EmailInput from "~/components/ui/Inputs/EmailInput";
         <h1 class="text-lg font-bold">Download App</h1>
 
         <h4 class="text-sm text-gray-400 font-medium">
-          Save $3 with App New User Only
+          Save ₱150 with App New User Only
         </h4>
 
         <div class="flex items-center gap-4">
@@ -120,5 +123,10 @@ import EmailInput from "~/components/ui/Inputs/EmailInput";
         </div>
       </div>
     </footer>
+
+    <span class="text-xs text-gray-400">
+      © Copyright Exclusive {{ new Date().getFullYear() }}. All right
+      reserved</span
+    >
   </div>
 </template>

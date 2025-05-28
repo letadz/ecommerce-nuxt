@@ -9,7 +9,7 @@ const isActive = (path) => route.path === path;
 
 <template>
   <div class="p-4 border-b border-gray-200">
-    <nav class="flex justify-between items-center mx-10">
+    <nav class="hidden lg:flex justify-between items-center mx-32">
       <div>
         <h1 class="text-2xl font-bold">Exclusive</h1>
       </div>
