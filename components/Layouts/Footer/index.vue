@@ -1,5 +1,5 @@
 <script setup>
-import EmailInput from "~/components/ui/Inputs/EmailInput";
+import EmailInput from "~/components/Reusable/Inputs/EmailInput";
 
 // const date = new Date();
 // const year = date.getFullYear();
@@ -125,8 +125,7 @@ import EmailInput from "~/components/ui/Inputs/EmailInput";
     </footer>
 
     <span class="text-xs text-gray-400">
-      © Copyright Exclusive {{ new Date().getFullYear() }}. All right
-      reserved</span
-    >
+      Copyright © {{ new Date().getFullYear() }} Exclusive. All right reserved
+    </span>
   </div>
 </template>

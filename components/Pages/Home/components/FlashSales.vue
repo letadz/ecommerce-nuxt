@@ -1,8 +1,8 @@
 <script setup>
 import { useProductsStore } from "@/stores/Products";
 
-import CustomCard from "@/components/ui/Cards/CustomCard";
-import FaIcon from "@/components/ui/FaIcon";
+import CustomCard from "@/components/Reusable/Cards/CustomCard";
+import FaIcon from "@/components/Reusable/FaIcon";
 
 const store = useProductsStore();
 const products = computed(() => store.getProducts);
@@ -41,7 +41,7 @@ const products = computed(() => store.getProducts);
                 :src="product.image"
                 :alt="product.title"
                 class="m-auto w-40 h-40 object-cover mb-4 rounded-md"
-                loading="lazy"
+                loading="eager"
               />
             </div>
             <div>
@@ -60,7 +60,7 @@ const products = computed(() => store.getProducts);
 
     <template #button>
       <button
-        class="mt-10 px-6 py-4 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
+        class="mt-10 px-6 py-4 bg-destructive text-white rounded-md hover:bg-red-600 transition"
       >
         View All Products
       </button>
@@ -69,7 +69,7 @@ const products = computed(() => store.getProducts);
 
   <!-- <Section class="my-24 ml-32 border-b border-gray-200 pb-12">
     <div class="flex items-center gap-4">
-      <div class="rounded-md w-6 h-10 bg-red-500" />
+      <div class="rounded-md w-6 h-10 bg-destructive" />
       <h2 class="text-base font-bold text-red-500">Today's</h2>
     </div>
 
@@ -112,7 +112,7 @@ const products = computed(() => store.getProducts);
                 :src="product.image"
                 :alt="product.title"
                 class="m-auto w-40 h-40 object-cover mb-4 rounded-md"
-                loading="lazy"
+                loading="eager"
               />
             </div>
             <div>
@@ -131,7 +131,7 @@ const products = computed(() => store.getProducts);
 
     <div class="grid place-items-center">
       <button
-        class="mt-10 px-6 py-4 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
+        class="mt-10 px-6 py-4 bg-destructive text-white rounded-md hover:bg-red-600 transition"
       >
         View All Products
       </button>

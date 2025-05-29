@@ -1,5 +1,5 @@
 <script setup>
-import FaIcon from "~/components/ui/FaIcon";
+import FaIcon from "~/components/Reusable/FaIcon";
 
 defineProps({
   value: {
@@ -39,9 +39,9 @@ const onPaste = (evt) => {
 </script>
 
 <template>
-  <div class="relative w-full">
+  <div class="relative w-[16rem]">
     <input
-      class="w-full border border-white bg-transparent rounded-md pr-8 py-2 px-4 text-sm focus:outline-none focus:outline-offset-0 focus:ring-0"
+      class="w-full pr-8 outline-none rounded-md py-2 px-4 bg-gray-100 text-sm focus:ring-2 focus:ring-gray-300"
       v-bind="$attrs"
       type="text"
       :value="value"
@@ -50,13 +50,10 @@ const onPaste = (evt) => {
       @paste="onPaste"
       @keypress="isNumber($event)"
     />
-
-    <div role="button">
-      <FaIcon
-        icon="paper-plane"
-        class="absolute right-3 top-1/2 transform -translate-y-1/2 text-white w-4 h-4"
-        spin
-      />
-    </div>
+    <FaIcon
+      icon="magnifying-glass"
+      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-black w-4 h-4"
+      spin
+    />
   </div>
 </template>

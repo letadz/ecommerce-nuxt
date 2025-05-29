@@ -43,7 +43,7 @@ const products = computed(() => store.getProducts);
               <img
                 :src="product.image"
                 :alt="product.title"
-                loading="lazy"
+                loading="eager"
                 class="m-auto w-[100px] md:w-[150px] object-fit"
               />
             </div>

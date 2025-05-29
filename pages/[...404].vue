@@ -1,5 +1,5 @@
 <script setup>
-import Wrapper from "~/components/ui/Wrapper";
+import Wrapper from "~/components/Reusable/Wrapper";
 </script>
 
 <template>

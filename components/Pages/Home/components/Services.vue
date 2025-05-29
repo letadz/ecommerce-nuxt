@@ -1,5 +1,5 @@
 <script setup>
-import ServiceCard from "~/components/ui/Cards/ServiceCard";
+import ServiceCard from "~/components/Reusable/Cards/ServiceCard";
 
 import { SERVICES } from "~/constants/icon";
 

@@ -12,6 +12,7 @@ import {
   faChevronRight,
   faChevronDown,
   faChevronLeft,
+  faChevronUp,
   faUsersCog,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -26,6 +27,7 @@ library.add(
   faChevronRight,
   faChevronDown,
   faChevronLeft,
+  faChevronUp,
   faUsersCog
 );
 

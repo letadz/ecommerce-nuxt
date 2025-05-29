@@ -1,5 +1,5 @@
 <script setup>
-import Button from "@/components/ui/Button/ColoredButton";
+import Button from "@/components/Reusable/Button/ColoredButton";
 </script>
 
 <template>

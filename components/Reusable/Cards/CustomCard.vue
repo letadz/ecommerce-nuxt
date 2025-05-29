@@ -12,9 +12,9 @@ defineProps({
 </script>
 
 <template>
-  <Section class="border-b border-gray-200 pb-12">
+  <section class="border-b border-gray-200 pb-12">
     <div class="flex items-center gap-3">
-      <div class="rounded-md w-5 h-10 bg-red-500" />
+      <div class="rounded-md w-5 h-10 bg-destructive" />
       <h2 class="text-base font-bold text-red-500">{{ title }}</h2>
     </div>
 
@@ -35,5 +35,5 @@ defineProps({
     <div class="grid place-items-center">
       <slot name="button" />
     </div>
-  </Section>
+  </section>
 </template>

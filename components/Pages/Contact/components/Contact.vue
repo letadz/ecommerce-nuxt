@@ -1,6 +1,6 @@
 <script setup>
-import FormInput from "@/components/ui/Inputs/FormInput";
-import Button from "@/components/ui/Button/ColoredButton";
+import FormInput from "@/components/Reusable/Inputs/FormInput";
+import Button from "@/components/Reusable/Button/ColoredButton";
 </script>
 
 <template>

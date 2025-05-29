@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const useProductsStore = defineStore("products", {
   state: () => ({
     products: [],
-    loading: false,
+    fetch: false,
     error: null,
   }),
   getters: {
@@ -18,7 +18,7 @@ export const useProductsStore = defineStore("products", {
   },
   actions: {
     async fetchProducts() {
-      this.loading = true;
+      this.fetch = true;
       this.error = null;
       try {
         const { $axios } = useNuxtApp();
@@ -28,7 +28,7 @@ export const useProductsStore = defineStore("products", {
       } catch (error) {
         this.error = error;
       } finally {
-        this.loading = false;
+        this.fetch = false;
       }
     },
   },

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from "vue"; // Make sure 'ref' is imported
-import CustomCard from "@/components/ui/Cards/CustomCard";
+import CustomCard from "@/components/Reusable/Cards/CustomCard";
 
 import { CATEGORIES, CATEGORIES_SECONDARY } from "@/constants/icon";
 
@@ -45,7 +45,7 @@ const getCategoryLogo = (category, index) => {
           role="button"
           v-for="(category, index) of categories"
           :key="index"
-          class="border rounded-lg p-4 mx-auto w-[200px] hover:bg-red-500 hover:text-white transition-transform duration-300"
+          class="border rounded-lg p-4 mx-auto w-[200px] hover:bg-destructive hover:text-white transition-transform duration-300"
           @mouseenter="setHoveredCategory(index)"
           @mouseleave="clearHoveredCategory"
         >
@@ -53,7 +53,7 @@ const getCategoryLogo = (category, index) => {
             :src="getCategoryLogo(category, index)"
             :alt="category.title"
             class="m-auto w-12 h-12 object-cover mb-4 rounded-md"
-            loading="lazy"
+            loading="eager"
           />
           <h6 class="text-center">
             {{ category.title }}

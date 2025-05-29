@@ -1,6 +1,6 @@
 <script setup>
-import SearchInput from "~/components/ui/Inputs/SearchInput";
-import FaIcon from "~/components/ui/FaIcon";
+import SearchInput from "~/components/Reusable/Inputs/SearchInput";
+// import { ShoppingCart, Heart } from "lucide-vue-next";
 
 const route = useRoute();
 
@@ -63,13 +63,13 @@ const isActive = (path) => route.path === path;
 
       <div class="flex items-center gap-4">
         <SearchInput placeholder="What are you looking for?" />
-        <FaIcon
-          icon="heart"
-          class="text-gray-500 cursor-pointer hover:text-gray-700 transition duration-200 w-6 h-6"
+
+        <Heart
+          class="text-black hover:text-gray-600 cursor-pointer h-4 w-4 transition duration-200"
         />
-        <FaIcon
-          icon="cart-shopping"
-          class="text-gray-500 cursor-pointer hover:text-gray-700 transition duration-200 w-6 h-6"
+
+        <ShoppingCart
+          class="text-black hover:text-gray-600 cursor-pointer h-4 w-4 transition duration-200"
         />
       </div>
     </nav>
