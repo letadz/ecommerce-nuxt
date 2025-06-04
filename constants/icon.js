@@ -92,3 +92,26 @@ export const RATINGS = [
     logo: "/icon/services7.png",
   },
 ];
+
+export const RATINGS_SECONDARY = [
+  {
+    title: "10.5K",
+    description: "Sellers active our site",
+    logo: "/icon/services1-white.png",
+  },
+  {
+    title: "33K",
+    description: "Monthly product sales",
+    logo: "/icon/services2-white.png",
+  },
+  {
+    title: "45.5K",
+    description: "Customer active our site",
+    logo: "/icon/services3-white.png",
+  },
+  {
+    title: "25K",
+    description: "Annual gross sale in our site",
+    logo: "/icon/services4-white.png",
+  },
+];

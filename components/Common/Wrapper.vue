@@ -13,7 +13,7 @@ const props = defineProps({
 
 <template>
   <div>
-    <div class="mx-0 md:mx-32 p-4">
+    <div class="mx-2 md:mx-16 lg:mx-32 p-4">
       <NuxtLink to="/" class="text-sm tracking-wide font-medium text-gray-500">
         {{ previousPath }} /
       </NuxtLink>

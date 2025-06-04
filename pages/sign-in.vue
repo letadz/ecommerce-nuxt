@@ -1,10 +1,9 @@
-<template>
-  <div>Sign In</div>
-</template>
-
-<!-- <script setup>
+<script setup>
 definePageMeta({
-  layout: "auth",
   middleware: "guest",
 });
-</script> -->
+</script>
+
+<template>
+  <PagesSignIn />
+</template>

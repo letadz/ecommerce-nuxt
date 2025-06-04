@@ -1,5 +1,5 @@
 <script setup>
-import FaIcon from "~/components/Reusable/FaIcon";
+import FaIcon from "~/components/Common/FaIcon";
 
 const showIcon = ref(false);
 

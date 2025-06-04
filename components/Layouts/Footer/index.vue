@@ -1,5 +1,5 @@
 <script setup>
-import EmailInput from "~/components/Reusable/Inputs/EmailInput";
+import EmailInput from "~/components/Common/Inputs/EmailInput";
 
 // const date = new Date();
 // const year = date.getFullYear();

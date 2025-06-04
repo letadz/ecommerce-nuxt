@@ -21,6 +21,8 @@ defineProps({
           variant === 'outline',
       },
     ]"
+    v-bind="$attrs"
+    @click="$emit('click')"
   >
     <slot />
   </button>

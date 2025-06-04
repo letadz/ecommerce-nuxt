@@ -1,5 +1,5 @@
 <script setup>
-import SearchInput from "~/components/Reusable/Inputs/SearchInput";
+import SearchInput from "~/components/Common/Inputs/SearchInput";
 // import { ShoppingCart, Heart } from "lucide-vue-next";
 
 const route = useRoute();
@@ -9,7 +9,9 @@ const isActive = (path) => route.path === path;
 
 <template>
   <div class="p-4 border-b border-gray-200">
-    <nav class="hidden lg:flex justify-between items-center mx-32">
+    <nav
+      class="hidden lg:flex justify-between items-center mx-2 md:mx-16 lg:mx-32"
+    >
       <div>
         <h1 class="text-2xl font-bold">Exclusive</h1>
       </div>

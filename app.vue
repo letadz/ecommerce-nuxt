@@ -12,5 +12,5 @@
 
 <script setup>
 import SplashScreen from "~/components/SplashScreen";
-import UpButton from "~/components/Reusable/Button/UpButton";
+import UpButton from "~/components/Common/Button/UpButton";
 </script>

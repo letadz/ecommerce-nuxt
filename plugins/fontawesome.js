@@ -14,6 +14,8 @@ import {
   faChevronLeft,
   faChevronUp,
   faUsersCog,
+  faEyeSlash,
+  faEye
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -28,7 +30,9 @@ library.add(
   faChevronDown,
   faChevronLeft,
   faChevronUp,
-  faUsersCog
+  faUsersCog,  
+  faEyeSlash,
+  faEye
 );
 
 config.autoAddCss = false;

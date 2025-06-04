@@ -1,8 +1,8 @@
 <script setup>
 import { useProductsStore } from "@/stores/Products";
 
-import CustomCard from "@/components/Reusable/Cards/CustomCard";
-import FaIcon from "@/components/Reusable/FaIcon";
+import CustomCard from "@/components/Common/Cards/CustomCard";
+import FaIcon from "@/components/Common/FaIcon";
 
 const store = useProductsStore();
 const products = computed(() => store.getProducts);

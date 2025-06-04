@@ -1,5 +1,5 @@
 <script setup>
-import Button from "@/components/Reusable/Button/ColoredButton";
+import Button from "@/components/Common/Button/ColoredButton";
 </script>
 
 <template>
@@ -10,7 +10,9 @@ import Button from "@/components/Reusable/Button/ColoredButton";
         The page you are looking for does not exist.
       </p>
 
-      <Button variant="destructive"> Go back to Home </Button>
+      <Button variant="destructive" @click="$router.push('/')" class="mt-6">
+        Go back to Home
+      </Button>
     </div>
   </div>
 </template>

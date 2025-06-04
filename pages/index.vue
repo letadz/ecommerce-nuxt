@@ -1,4 +1,9 @@
 <script setup>
+definePageMeta({
+  layout: "auth",
+  middleware: "auth",
+});
+
 const store = useProductsStore();
 
 onMounted(() => {

@@ -7,7 +7,7 @@ const products = computed(() => store.getProducts);
 </script>
 
 <template>
-  <div class="flex gap-8 mx-32">
+  <div class="flex gap-8 mx-2 md:mx-16 lg:mx-32">
     <Sidebar />
 
     <div class="flex-1 min-w-0">
@@ -20,7 +20,7 @@ const products = computed(() => store.getProducts);
         :lazy="true"
         :autoplay="{ delay: 3000 }"
       >
-        <SwiperSlide v-for="product in products.slice(0, 5)" :key="product.id">
+        <SwiperSlide v-for="product in products" :key="product.id">
           <div
             class="grid grid-cols-2 gap-4 bg-black text-white p-8 items-center justify-between h-[300px]"
           >

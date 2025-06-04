@@ -1,10 +1,12 @@
 <script setup>
-import FormInput from "@/components/Reusable/Inputs/FormInput";
-import Button from "@/components/Reusable/Button/ColoredButton";
+import FormInput from "@/components/Common/Inputs/FormInput";
+import Button from "@/components/Common/Button/ColoredButton";
 </script>
 
 <template>
-  <div
+  <form
+    method="POST"
+    action="https://formspree.io/f/xqabkwdd"
     class="flex flex-col gap-4 md:gap-6 border shadow-lg rounded-lg p-6 bg-white w-full"
   >
     <div class="flex items-center gap-4">
@@ -23,6 +25,8 @@ import Button from "@/components/Reusable/Button/ColoredButton";
       class="w-full h-32 p-2 border border-gray-300 rounded-md"
     />
 
-    <Button variant="destructive" class="self-end"> Send Message </Button>
-  </div>
+    <Button type="submit" variant="destructive" class="self-end">
+      Send Message
+    </Button>
+  </form>
 </template>

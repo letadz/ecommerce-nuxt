@@ -29,8 +29,8 @@ defineProps({
     />
 
     <div class="text-center">
-      <h2 class="text-lg font-semibold text-gray-900">{{ title }}</h2>
-      <span class="text-sm text-gray-900">{{ description }}</span>
+      <h1 class="text-2xl font-semibold">{{ title }}</h1>
+      <h6 class="text-sm">{{ description }}</h6>
     </div>
   </div>
 </template>

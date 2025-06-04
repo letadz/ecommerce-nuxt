@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col text-center md:text-start ml-0 md:ml-32 gap-4 md:gap-6 p-6 w-full"
+    class="flex flex-col text-center md:text-start ml-0 md:ml-16 lg:ml-32 gap-4 md:gap-6 p-4 lg:p-6 w-full"
   >
     <h1 class="text-4xl font-bold text-gray-900">Our Story</h1>
     <p class="text-sm text-gray-700">

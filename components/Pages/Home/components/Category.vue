@@ -1,6 +1,5 @@
 <script setup>
-import { ref, computed } from "vue"; // Make sure 'ref' is imported
-import CustomCard from "@/components/Reusable/Cards/CustomCard";
+import CustomCard from "@/components/Common/Cards/CustomCard";
 
 import { CATEGORIES, CATEGORIES_SECONDARY } from "@/constants/icon";
 
@@ -35,7 +34,7 @@ const getCategoryLogo = (category, index) => {
   <CustomCard
     title="Categories"
     description="Browse By Category"
-    class="my-12 mx-32"
+    class="my-12 mx-2 md:mx-16 lg:mx-32"
   >
     <template #content>
       <div

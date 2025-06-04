@@ -1,6 +1,6 @@
 <script setup>
 import SidebarSingleItem from "../SingleItem/SidebarSingleItem";
-import FaIcon from "~/components/Reusable/FaIcon";
+import FaIcon from "~/components/Common/FaIcon";
 
 import { useSidebarItemProps } from "~/composables/SidebarItemComposable";
 

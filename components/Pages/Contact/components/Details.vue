@@ -30,7 +30,7 @@
 
       <p class="text-md text-gray-600">Email: customer@exclusive.com</p>
       <p class="text-md text-gray-600">Phone: +63 907 8349 321</p>
-      <p class="text-md text-gray-600">Emails: support@exclusive.com</p>
+      <p class="text-md text-gray-600">Email: support@exclusive.com</p>
     </div>
   </div>
 </template>
