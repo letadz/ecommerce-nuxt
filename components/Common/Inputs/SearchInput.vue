@@ -1,5 +1,5 @@
 <script setup>
-import FaIcon from "~/components/ui/FaIcon";
+import FaIcon from "~/components/Common/FaIcon";
 
 defineProps({
   value: {

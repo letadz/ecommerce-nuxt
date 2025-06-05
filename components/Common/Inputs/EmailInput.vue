@@ -1,5 +1,5 @@
 <script setup>
-import FaIcon from "~/components/ui/FaIcon";
+import FaIcon from "~/components/Common/FaIcon";
 
 defineProps({
   value: {
@@ -39,7 +39,7 @@ const onPaste = (evt) => {
 </script>
 
 <template>
-  <div class="relative w-full md:w-[16rem]">
+  <div class="relative w-full">
     <input
       class="w-full border border-white bg-transparent rounded-md pr-8 py-2 px-4 text-sm focus:outline-none focus:outline-offset-0 focus:ring-0"
       v-bind="$attrs"

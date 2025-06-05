@@ -4,14 +4,12 @@ import Footer from "~/components/Layouts/Footer";
 </script>
 
 <template>
-  <div class="antialiased w-svw h-svh">
-    <div class="flex flex-col flex-1">
+  <div class="antialiased">
+    <div class="flex flex-col flex-1 h-screen">
       <Header />
 
-      <main class="flex-1">
-        <div class="md:py-5 py-4">
-          <NuxtPage />
-        </div>
+      <main class="flex flex-col flex-1 my-6">
+        <NuxtPage />
       </main>
 
       <Footer />

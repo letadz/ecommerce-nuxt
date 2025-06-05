@@ -1,15 +1,16 @@
 <script setup>
-import SearchInput from "~/components/ui/Inputs/SearchInput";
-import FaIcon from "~/components/ui/FaIcon";
+import SearchInput from "~/components/Common/Inputs/SearchInput";
 
 const route = useRoute();
-
 const isActive = (path) => route.path === path;
+const store = useAuthStore();
 </script>
 
 <template>
   <div class="p-4 border-b border-gray-200">
-    <nav class="flex justify-between items-center mx-10">
+    <nav
+      class="hidden lg:flex justify-between items-center mx-2 md:mx-16 lg:mx-32"
+    >
       <div>
         <h1 class="text-2xl font-bold">Exclusive</h1>
       </div>
@@ -48,28 +49,39 @@ const isActive = (path) => route.path === path;
         >
           About
         </NuxtLink>
+
         <NuxtLink
+          v-if="!store.userDetails?.data?.accessToken"
           to="/sign-in"
           :class="[
             'transition duration-200 hover:underline hover:underline-offset-8',
             isActive('/sign-in')
-              ? 'text-black underline underline-offset-8'
+              ? 'text-black hover:text-black underline underline-offset-8'
               : 'text-gray-500',
           ]"
         >
           Sign In
         </NuxtLink>
+
+        <button
+          v-else
+          type="button"
+          class="text-sm text-gray-500 transition duration-200 hover:underline hover:underline-offset-8 font-medium"
+          @click="store.logout"
+        >
+          Logout
+        </button>
       </div>
 
       <div class="flex items-center gap-4">
         <SearchInput placeholder="What are you looking for?" />
-        <FaIcon
-          icon="heart"
-          class="text-gray-500 cursor-pointer hover:text-gray-700 transition duration-200 w-6 h-6"
+
+        <Heart
+          class="text-black hover:text-gray-600 cursor-pointer h-4 w-4 transition duration-200"
         />
-        <FaIcon
-          icon="cart-shopping"
-          class="text-gray-500 cursor-pointer hover:text-gray-700 transition duration-200 w-6 h-6"
+
+        <ShoppingCart
+          class="text-black hover:text-gray-600 cursor-pointer h-4 w-4 transition duration-200"
         />
       </div>
     </nav>

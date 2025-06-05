@@ -1,10 +1,10 @@
 .swiper-pagination-bullet {
-    background-color: hsl(0, 100%, 100%) !important;
+    background-color: hsl(0, 0%, 35%) !important;
     border: 1px solid #fff;
-    width: 0.6rem !important;
-    height: 0.6rem !important;
+    width: 0.7rem !important;
+    height: 0.7rem !important;
     margin: 0 0.25rem;
-    border-radius: 9999px;
+    border-radius: 9999px; 
 }
 
 .swiper-pagination-bullet-active {
@@ -14,4 +14,4 @@
 .swiper-button-next::after,
 .swiper-button-prev::after {
     display: none;
-}
+}  

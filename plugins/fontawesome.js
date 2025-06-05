@@ -7,6 +7,15 @@ import {
   faPaperPlane,
   faHeart,
   faCartShopping,
+  faArrowRight,
+  faArrowLeft,
+  faChevronRight,
+  faChevronDown,
+  faChevronLeft,
+  faChevronUp,
+  faUsersCog,
+  faEyeSlash,
+  faEye
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -14,7 +23,16 @@ library.add(
   faMagnifyingGlass,
   faPaperPlane,
   faHeart,
-  faCartShopping
+  faCartShopping,
+  faArrowRight,
+  faArrowLeft,
+  faChevronRight,
+  faChevronDown,
+  faChevronLeft,
+  faChevronUp,
+  faUsersCog,  
+  faEyeSlash,
+  faEye
 );
 
 config.autoAddCss = false;
