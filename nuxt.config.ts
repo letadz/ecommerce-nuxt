@@ -3,7 +3,8 @@ dotenv.config();
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
-  devtools: { enabled: process.env.NODE_ENV == "dev" },
+  // devtools: { enabled: process.env.NODE_ENV == "dev" },
+  devtools: { enabled: true },
   // ssr: false,
   app: {
     head: {
@@ -33,6 +34,7 @@ export default defineNuxtConfig({
     "~/assets/scss/app.scss",
     "animate.css",
     "vue3-carousel/dist/carousel.css",
+    "vue-toastification/dist/index.css",
   ],
   modules: ["@pinia/nuxt", "@nuxtjs/tailwindcss"],
   pinia: {

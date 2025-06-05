@@ -1,10 +1,9 @@
 <script setup>
 import SearchInput from "~/components/Common/Inputs/SearchInput";
-// import { ShoppingCart, Heart } from "lucide-vue-next";
 
 const route = useRoute();
-
 const isActive = (path) => route.path === path;
+const store = useAuthStore();
 </script>
 
 <template>
@@ -50,17 +49,28 @@ const isActive = (path) => route.path === path;
         >
           About
         </NuxtLink>
+
         <NuxtLink
+          v-if="!store.userDetails?.data?.accessToken"
           to="/sign-in"
           :class="[
             'transition duration-200 hover:underline hover:underline-offset-8',
             isActive('/sign-in')
-              ? 'text-black underline underline-offset-8'
+              ? 'text-black hover:text-black underline underline-offset-8'
               : 'text-gray-500',
           ]"
         >
           Sign In
         </NuxtLink>
+
+        <button
+          v-else
+          type="button"
+          class="text-sm text-gray-500 transition duration-200 hover:underline hover:underline-offset-8 font-medium"
+          @click="store.logout"
+        >
+          Logout
+        </button>
       </div>
 
       <div class="flex items-center gap-4">

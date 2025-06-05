@@ -3,13 +3,14 @@ import axios from "axios";
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig();
 
-  const instance = axios.create({
+  const api = axios.create({
     baseURL: config.public.apiBaseUrl,
   });
 
-  instance.interceptors.request.use((config) => {
+  api.interceptors.request.use((config) => {
+    console.log("config", config);
     return config;
   });
 
-  nuxtApp.provide("axios", instance);
+  nuxtApp.provide("api", api);
 });

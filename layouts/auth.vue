@@ -1,12 +1,12 @@
 <script setup>
-import Header from "~/components/Layouts/Header";
+// import Header from "~/components/Layouts/Header";
 import Footer from "~/components/Layouts/Footer";
 </script>
 
 <template>
   <div class="antialiased">
     <div class="flex flex-col flex-1 h-screen">
-      <Header />
+      <!-- <Header /> -->
 
       <main class="flex flex-col flex-1 my-6">
         <NuxtPage />

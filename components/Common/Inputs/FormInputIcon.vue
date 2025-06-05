@@ -30,6 +30,8 @@ const props = defineProps({
   },
 });
 
+const emit = defineEmits(["update:modelValue"]);
+
 const passwordIcon = ref("eye");
 const inputType = ref("");
 
@@ -74,7 +76,7 @@ const showPassword = () => {
         :value="modelValue"
         v-bind="$attrs"
         @paste="onPaste"
-        @input="$emit('update:modelValue', $event.target.value)"
+        @input="emit('update:modelValue', $event.target.value)"
         @keypress="isNumber"
       />
     </div>

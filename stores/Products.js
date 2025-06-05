@@ -21,12 +21,12 @@ export const useProductsStore = defineStore("products", {
       this.fetch = true;
       this.error = null;
       try {
-        const { $axios } = useNuxtApp();
-        const response = await $axios.get("/products");
+        const response = await useNuxtApp().$api.get("/products");
         this.products = response.data;
         console.log("Products fetched successfully:", this.products);
       } catch (error) {
         this.error = error;
+        console.log("error", error);
       } finally {
         this.fetch = false;
       }

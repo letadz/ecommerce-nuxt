@@ -1,12 +1,12 @@
 <script setup>
 definePageMeta({
-  layout: "auth",
   middleware: "auth",
 });
 
 const store = useProductsStore();
 
 onMounted(() => {
+  console.log("store", store.fetchProducts());
   store.fetchProducts();
 });
 </script>
