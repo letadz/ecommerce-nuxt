@@ -56,7 +56,7 @@ const store = useAuthStore();
           :class="[
             'transition duration-200 hover:underline hover:underline-offset-8',
             isActive('/sign-in')
-              ? 'text-black hover:text-black underline underline-offset-8'
+              ? 'text-black underline underline-offset-8'
               : 'text-gray-500',
           ]"
         >

@@ -6,7 +6,6 @@ import {
   signOut,
   signInWithPopup,
 } from "firebase/auth";
-import firebaseApp from "~/plugins/firebase.client";
 
 const toast = useToast();
 

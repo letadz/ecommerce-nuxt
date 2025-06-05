@@ -12,7 +12,7 @@ import Services from "./components/Services";
   <Category />
   <Services />
 
-  <div class="my-product-page">
+  <!-- <div class="my-product-page">
     <h1 class="text-3xl font-bold mb-6">Awesome Product</h1>
 
     <div
@@ -42,5 +42,5 @@ import Services from "./components/Services";
     <p class="text-center mt-4 text-gray-600">
       Hover over the image to zoom in!
     </p>
-  </div>
+  </div> -->
 </template>
