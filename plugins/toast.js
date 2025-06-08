@@ -1,4 +1,5 @@
-import Toast, { useToast } from "vue-toastification";
+// plugins/toast.js
+import ToastPlugin from "vue-toastification";
 import "vue-toastification/dist/index.css";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -9,6 +10,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     rtl: false,
   };
 
-  nuxtApp.vueApp.use(Toast, options);
+  nuxtApp.vueApp.use(ToastPlugin, options);
+
+  const { useToast } = ToastPlugin;
   nuxtApp.provide("toast", useToast());
 });
