@@ -1,13 +1,11 @@
 import { defineStore } from "pinia";
-import { useToast } from "vue-toastification";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   signInWithPopup,
 } from "firebase/auth";
-
-const toast = useToast();
+import { toast } from "vue3-toastify";
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({
@@ -32,7 +30,7 @@ export const useAuthStore = defineStore("auth", {
       this.userDetails.fetch = true;
       this.userDetails.error = null;
 
-      const { $firebase, $router } = useNuxtApp();
+      const { $firebase, $router, $api } = useNuxtApp();
       const { email, password } = payload;
 
       try {
@@ -41,14 +39,18 @@ export const useAuthStore = defineStore("auth", {
           email,
           password
         );
-        console.log("Login Successful:", data);
+        const accessToken = data.user.accessToken;
+
         this.userDetails.data = data.user;
         this.userDetails.fetch = false;
         this.userDetails.error = null;
 
         localStorage.setItem("user", JSON.stringify(data.user));
 
-        toast.success("Login Successful");
+        $api.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+        $api.defaults.headers.common["Content-Type"] = "application/json";
+
+        toast.success("Successful!");
         $router.push("/");
         return data;
       } catch (error) {
@@ -59,6 +61,28 @@ export const useAuthStore = defineStore("auth", {
         throw error;
       }
     },
+
+    // async googleSignIn(payload) {
+    //   this.googleUserDetails.fetch = true;
+    //   this.googleUserDetails.error = null;
+
+    //   const { $router } = useNuxtApp();
+    //   const { auth, provider } = payload;
+
+    //   try {
+    //     const result = await signInWithPopup(auth, provider);
+
+    //     this.googleUserDetails.data = result.user;
+    //     this.googleUserDetails.fetch = false;
+    //     this.googleUserDetails.error = null;
+
+    //     $router.push("/");
+    //   } catch (error) {
+    //     this.googleUserDetails.data = null;
+    //     this.googleUserDetails.fetch = false;
+    //     this.googleUserDetails.error = error.message;
+    //   }
+    // },
 
     async googleSignIn(payload) {
       this.googleUserDetails.fetch = true;
@@ -73,12 +97,30 @@ export const useAuthStore = defineStore("auth", {
         this.googleUserDetails.data = result.user;
         this.googleUserDetails.fetch = false;
         this.googleUserDetails.error = null;
-
         $router.push("/");
+        // You might also want to persist user data for Google sign-in
+        // localStorage.setItem("user", JSON.stringify(result.user));
+        // If you have an API, you might need to send the ID token here too
+        // const idToken = await result.user.getIdToken();
+        // useNuxtApp().$api.defaults.headers.common["Authorization"] = `Bearer ${idToken}`;
+        // useNuxtApp().$api.defaults.headers.common["Content-Type"] = "application/json";
       } catch (error) {
+        console.error("googleSignIn: Sign-in failed!", error);
+        toast.error(error.message); // Show toast for error
+
         this.googleUserDetails.data = null;
         this.googleUserDetails.fetch = false;
         this.googleUserDetails.error = error.message;
+
+        // Do NOT push to home on error
+        // if (error.code === 'auth/popup-closed-by-user') {
+        //   console.log('Google sign-in popup closed by user.');
+        // } else {
+        //   // Handle other errors
+        // }
+      } finally {
+        // This block will always run after try/catch
+        console.log("googleSignIn: Action finished.");
       }
     },
 
@@ -114,7 +156,7 @@ export const useAuthStore = defineStore("auth", {
       this.userDetails.fetch = true;
       this.userDetails.error = null;
 
-      const { $firebase, $router } = useNuxtApp();
+      const { $firebase, $router, $api } = useNuxtApp();
 
       try {
         await signOut($firebase?.auth);
@@ -124,6 +166,9 @@ export const useAuthStore = defineStore("auth", {
         this.userDetails.data = null;
 
         localStorage.removeItem("user");
+        delete $api.defaults.headers.common["Authorization"];
+        delete $api.defaults.headers.common["Content-Type"];
+
         toast.success("Logout");
         $router.push("/sign-in");
       } catch (error) {

@@ -1,17 +1,18 @@
-// plugins/toast.js
-import ToastPlugin from "vue-toastification";
-import "vue-toastification/dist/index.css";
+// plugins/vue3-toastify.client.ts
+import Vue3Toastify, { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 
 export default defineNuxtPlugin((nuxtApp) => {
   const options = {
-    position: "bottom-left",
-    timeout: 3000,
-    draggablePercent: 0.6,
-    rtl: false,
+    position: toast.POSITION.BOTTOM_LEFT,
+    theme: "colored",
   };
 
-  nuxtApp.vueApp.use(ToastPlugin, options);
+  nuxtApp.vueApp.use(Vue3Toastify, options);
 
-  const { useToast } = ToastPlugin;
-  nuxtApp.provide("toast", useToast());
+  return {
+    provide: {
+      toast: toast,
+    },
+  };
 });
