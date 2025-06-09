@@ -3,7 +3,7 @@ import FormInput from "~/components/Common/Inputs/FormInput";
 import FormInputIcon from "~/components/Common/Inputs/FormInputIcon";
 import Button from "@/components/Common/Button/ColoredButton";
 
-const { $firebase } = useNuxtApp();
+const { $firebase, $router } = useNuxtApp();
 const store = useAuthStore();
 
 const email = ref("");
@@ -12,10 +12,12 @@ const password = ref("");
 const handleGoogleLogin = async (e) => {
   e.preventDefault();
 
-  await store.googleSignIn({
-    auth: $firebase.auth,
-    provider: $firebase.provider,
-  });
+  if (!store.googleUserDetails.error) {
+    await store.googleSignIn({
+      auth: $firebase.auth,
+      provider: $firebase.provider,
+    });
+  }
 };
 
 const handleLogin = async () => {

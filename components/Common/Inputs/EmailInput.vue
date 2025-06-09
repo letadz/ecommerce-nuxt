@@ -18,7 +18,7 @@ defineProps({
 
 const isNumber = (evt) => {
   if (props.type === "number") {
-    evt = evt || window.event;
+    evt = evt;
     const charCode = evt.which ? evt.which : evt.keyCode;
     charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 46
       ? evt.preventDefault()

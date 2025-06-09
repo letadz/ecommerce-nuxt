@@ -34,7 +34,6 @@ export default defineNuxtConfig({
     "~/assets/scss/app.scss",
     "animate.css",
     "vue3-carousel/dist/carousel.css",
-    "vue-toastification/dist/index.css",
   ],
   modules: ["@pinia/nuxt", "@nuxtjs/tailwindcss"],
   pinia: {
