@@ -43,10 +43,13 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL,
+      apiBaseUrl:
+        process.env.NUXT_PUBLIC_API_BASE_URL || "https://fakestoreapi.com",
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
       supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_KEY,
-      googleClientId: process.env.NUXT_PUBLIC_CLIENT_ID,
+      googleClientId:
+        process.env.NUXT_PUBLIC_CLIENT_ID ||
+        "159151109716-3r65mu5rvonifut819ujchia558v31h3.apps.googleusercontent.com",
     },
   },
 });
