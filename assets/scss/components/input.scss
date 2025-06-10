@@ -1,0 +1,7 @@
+@layer utilities {
+  input:-webkit-autofill {
+    @apply shadow-[inset_0_0_0_1000px_white] text-black;
+    -webkit-text-fill-color: black !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
