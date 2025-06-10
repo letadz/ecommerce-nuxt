@@ -51,7 +51,6 @@ const onPaste = (evt) => {
     :type="type"
     :value="modelValue"
     :name="name"
-    :placeholder="placeholder"
     v-bind="$attrs"
     @input="$emit('update:modelValue', $event.target.value)"
     @paste="onPaste"

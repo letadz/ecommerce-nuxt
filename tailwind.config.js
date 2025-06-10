@@ -18,7 +18,7 @@ module.exports = {
       colors: {
         primary: "#6366f1",
         secondary: "#f3f4f6",
-        destructive: "#ef4444",
+        destructive: "#111111",
         ring: "#6366f1",
         accent: "#f1f5f9",
         background: "#ffffff",

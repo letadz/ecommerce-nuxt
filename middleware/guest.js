@@ -1,8 +1,8 @@
 // middleware/guest.js
-export default defineNuxtRouteMiddleware((to, from) => {
+export default defineNuxtRouteMiddleware(() => {
   const store = useAuthStore();
 
-  if (store.userDetails?.data?.accessToken) {
+  if (store.isAuthenticated) {
     return navigateTo("/");
   }
 });

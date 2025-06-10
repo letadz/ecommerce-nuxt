@@ -25,6 +25,14 @@ export const useAuthStore = defineStore("auth", {
       error: null,
     },
   }),
+  getters: {
+    isAuthenticated(state) {
+      return (
+        state.userDetails.data?.accessToken ||
+        state.googleUserDetails.data?.accessToken
+      );
+    },
+  },
   actions: {
     async signIn(payload) {
       this.userDetails.fetch = true;
@@ -88,38 +96,34 @@ export const useAuthStore = defineStore("auth", {
       this.googleUserDetails.fetch = true;
       this.googleUserDetails.error = null;
 
-      const { $router } = useNuxtApp();
+      const { $router, $api } = useNuxtApp();
       const { auth, provider } = payload;
 
       try {
-        const result = await signInWithPopup(auth, provider);
+        const data = await signInWithPopup(auth, provider);
+        const accessToken = data.user.accessToken;
 
-        this.googleUserDetails.data = result.user;
+        console.log("data google", data);
+
+        this.googleUserDetails.data = data.user;
         this.googleUserDetails.fetch = false;
         this.googleUserDetails.error = null;
-        $router.push("/");
-        // You might also want to persist user data for Google sign-in
-        // localStorage.setItem("user", JSON.stringify(result.user));
-        // If you have an API, you might need to send the ID token here too
-        // const idToken = await result.user.getIdToken();
-        // useNuxtApp().$api.defaults.headers.common["Authorization"] = `Bearer ${idToken}`;
-        // useNuxtApp().$api.defaults.headers.common["Content-Type"] = "application/json";
+
+        localStorage.setItem("user", JSON.stringify(data.user));
+        $api.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+        $api.defaults.headers.common["Content-Type"] = "application/json";
+
+        await nextTick(() => {
+          $router.push("/");
+        });
       } catch (error) {
         console.error("googleSignIn: Sign-in failed!", error);
-        toast.error(error.message); // Show toast for error
+        toast.error(error.message);
 
         this.googleUserDetails.data = null;
         this.googleUserDetails.fetch = false;
         this.googleUserDetails.error = error.message;
-
-        // Do NOT push to home on error
-        // if (error.code === 'auth/popup-closed-by-user') {
-        //   console.log('Google sign-in popup closed by user.');
-        // } else {
-        //   // Handle other errors
-        // }
       } finally {
-        // This block will always run after try/catch
         console.log("googleSignIn: Action finished.");
       }
     },
@@ -165,6 +169,10 @@ export const useAuthStore = defineStore("auth", {
         this.userDetails.error = null;
         this.userDetails.data = null;
 
+        this.googleUserDetails.fetch = null;
+        this.googleUserDetails.error = null;
+        this.googleUserDetails.data = null;
+
         localStorage.removeItem("user");
         delete $api.defaults.headers.common["Authorization"];
         delete $api.defaults.headers.common["Content-Type"];
@@ -175,6 +183,10 @@ export const useAuthStore = defineStore("auth", {
         this.userDetails.fetch = null;
         this.userDetails.data = null;
         this.userDetails.error = error.message;
+
+        this.googleUserDetails.fetch = null;
+        this.googleUserDetails.error = null;
+        this.googleUserDetails.data = error.message;
 
         toast.message(error.message);
       }

@@ -1,6 +1,7 @@
 <script setup>
 import { useProductsStore } from "@/stores/Products";
 
+import Button from "@/components/Common/Button/ColoredButton";
 import CustomCard from "@/components/Common/Cards/CustomCard";
 import FaIcon from "@/components/Common/FaIcon";
 
@@ -59,11 +60,7 @@ const products = computed(() => store.getProducts);
     </template>
 
     <template #button>
-      <button
-        class="mt-10 px-6 py-4 bg-destructive text-white rounded-md hover:bg-red-600 transition"
-      >
-        View All Products
-      </button>
+      <Button :variant="'destructive'" class="mt-10">View All Products</Button>
     </template>
   </CustomCard>
 

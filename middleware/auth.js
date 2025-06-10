@@ -2,7 +2,7 @@
 export default defineNuxtRouteMiddleware(async (to, from) => {
   const store = useAuthStore();
 
-  if (!store.userDetails?.data?.accessToken) {
+  if (!store.isAuthenticated) {
     return navigateTo("/sign-in");
   }
 });

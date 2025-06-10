@@ -2,35 +2,51 @@
 import FormInput from "~/components/Common/Inputs/FormInput";
 import FormInputIcon from "~/components/Common/Inputs/FormInputIcon";
 import Button from "@/components/Common/Button/ColoredButton";
+import SplashScreen from "@/components/SplashScreen";
 
 const { $firebase, $router } = useNuxtApp();
 const store = useAuthStore();
 
 const email = ref("");
 const password = ref("");
+const isLoading = ref(false);
+
+const userDetails = computed(() => store.userDetails);
 
 const handleGoogleLogin = async (e) => {
   e.preventDefault();
+  isLoading.value = true;
 
-  if (!store.googleUserDetails.error) {
+  try {
     await store.googleSignIn({
       auth: $firebase.auth,
       provider: $firebase.provider,
     });
+  } catch (error) {
+    console.error("Google login failed", error);
+  } finally {
+    isLoading.value = false;
   }
 };
 
 const handleLogin = async () => {
-  await store.signIn({
-    email: email.value,
-    password: password.value,
-  });
+  isLoading.value = true;
+
+  if (!store.userDetails.error) {
+    await store.signIn({
+      email: email.value,
+      password: password.value,
+    });
+  }
+
+  isLoading.value = false;
 };
 </script>
 
 <template>
   <div class="grid grid-cols-2 place-items-center mx-32 p-4">
     <div />
+
     <form class="w-1/2 p-4 shadow-lg rounded-lg" @submit.prevent="handleLogin">
       <h1>Sign In</h1>
 
@@ -86,4 +102,6 @@ const handleLogin = async () => {
       </div>
     </form>
   </div>
+
+  <SplashScreen v-show="isLoading" />
 </template>

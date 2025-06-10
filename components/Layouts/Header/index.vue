@@ -51,7 +51,7 @@ const store = useAuthStore();
         </NuxtLink>
 
         <NuxtLink
-          v-if="!store.userDetails?.data?.accessToken"
+          v-if="!store.isAuthenticated"
           to="/sign-in"
           :class="[
             'transition duration-200 hover:underline hover:underline-offset-8',
